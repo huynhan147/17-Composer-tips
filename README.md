@@ -6,12 +6,12 @@
 
 Mặc dù hầu hết các developer PHP đều biết cách sử dụng Composer, không phải tất cả họ đều sử dụng nó một cách hiệu quả hoặc theo cách tốt nhất có thể. Vì vậy, tôi đã quyết định tóm tắt những thứ quan trọng trong quy trình làm việc hàng ngày của tôi.
 
-Triết lý của hầu hết các lời khuyên là _"Thực hiện nó một cách an toàn"_, có nghĩa là nếu có nhiều cách hơn để xử lý một cái gì đó, tôi sẽ sử dụng cách tiếp cận ít bị lỗi nhất.
+Triết lý của hầu hết các lời khuyên là _"Thực hiện nó một cách an toàn"_, có nghĩa là nếu có nhiều cách hơn để xử lý một cái gì đó, tôi sẽ sử dụng cách tiếp cận ít  khả năng bị lỗi nhất.
 
 ## Lời khuyên #1: Đọc tài liệu
 
 Tôi thực sự khuyên bạn làm điều này. [Tài liệu](https://getcomposer.org/doc/) rất tuyệt
-và dành một vài giờ đọc nó sẽ giúp bạn tiết kiệm nhiều thời gian hơn trong thời gian dài. Bạn sẽ ngạc nhiên khi có rất nhiều thứ mà Composer có thể làm được.
+và dành một vài giờ đọc  về lâu về dài nó sẽ giúp bạn tiết kiệm nhiều thời gian hơn . Bạn sẽ ngạc nhiên khi có rất nhiều thứ mà Composer có thể làm được.
 
 ## Tip #2: Hãy nhận ra sự khác biệt giữa một "project" và một "library"
 
@@ -31,7 +31,7 @@ Tôi sẽ phân biệt giữa thư viện và một project trong những lời 
 
 Nếu bạn đang tạo một ứng dụng, bạn nên sử dụng phiên bản cụ thể nhất để xác định các phụ thuộc. Nếu bạn cần phân tích các file YAML, bạn nên chỉ định phụ thuộc như thế này `"symfony/yaml": "4.0.2"`.
 
-Ngay cả khi thư viện tuân theo [Semantic Versioning](https://semver.org/), có thể backwards-compatibility trong các phiên bản nhỏ và bản vá.Ví dụ: nếu bạn đang sử dụng `"symfony/symfony": "^3.1"`, có thể có điều gì đó không được chấp nhận trong 3.2 có thể phá vỡ các test ứng dụng của bạn. Hoặc có thể có một lỗi được sửa trong PHP_CodeSniffer và nó sẽ phát hiện các vấn đề về định dạng mới trong code của bạn, điều này có thể dẫn đến cấu trúc code bị hỏng.
+Ngay cả khi thư viện tuân theo [Semantic Versioning](https://semver.org/), có thể backwards-compatibility breaks trong các phiên bản nhỏ và bản vá.Ví dụ: nếu bạn đang sử dụng `"symfony/symfony": "^3.1"`, có thể có điều gì đó không được chấp nhận trong 3.2 có thể phá vỡ các test ứng dụng của bạn. Hoặc có thể có một lỗi được sửa trong PHP_CodeSniffer và nó sẽ phát hiện các vấn đề về định dạng mới trong code của bạn, điều này có thể dẫn đến cấu trúc code bị hỏng.
 
 Việc cập nhật phụ thuộc nên được cân nhắc, không được tùy tiện. Một trong những lời khuyên dưới đây sẽ nói về điều này chi tiết hơn.
 
@@ -125,7 +125,7 @@ nó](https://getcomposer.org/doc/06-config.md#sort-packages) trong
     }
     
 
-Lần tới, bạn `require` một gói mới, nó sẽ được thêm vào một vị trí thích hợp (và không phải đến cuối).
+Lần tới, bạn `require` một gói mới, nó sẽ được thêm vào một vị trí thích hợp (và không phải vào cuối cùng).
 
 ## Lời khuyên #9: Không cố gắng gộp `composer.lock` khi rebase hoặc merge
 
@@ -144,7 +144,7 @@ Bạn có thể khắc phục vấn đề này bằng các sử dụng các nhá
 
 
 Nhưng bạn phải làm gì, khi gặp xung đột khi gộp ở `composer.lock` khi
-rebase? ải quyết nó với phiên bản từ master, vì vậy bạn sẽ chỉ có những thay đổi trong `composer.json` (gói mới được thêm vào). Và sau đó chạy `composer update --lock`, sẽ cập nhật file` composer.lock` với các thay đổi từ `composer.json`. Bây giờ bạn có thể stage file `composer.lock` được cập nhật và tiếp tục với việc rebase.
+rebase? Giải quyết nó với phiên bản từ master, vì vậy bạn sẽ chỉ có những thay đổi trong `composer.json` (gói mới được thêm vào). Và sau đó chạy `composer update --lock`, sẽ cập nhật file` composer.lock` với các thay đổi từ `composer.json`. Bây giờ bạn có thể stage file `composer.lock` được cập nhật và tiếp tục với việc rebase.
 
 ## Lời khuyên #10: Hiểu rõ sự khác biệt giữa `require` và `require-dev`
 
@@ -152,12 +152,12 @@ rebase? ải quyết nó với phiên bản từ master, vì vậy bạn sẽ ch
 
 Các gói được yêu cầu để chạy ứng dụng hoặc thư viện phải được định nghĩa trong  `require` (e.g. Symfony, Doctrine, Twig, Guzzle). Nếu bạn đang tạo một thư viện, hãy cẩn thận về những gì bạn đặt vào  `require`. Bởi vì mỗi phụ thuộc từ phần này cũng là một phụ thuộc của ứng dụng, sử dụng thư viện.
 
-PCác gói cần thiết cho việc phát triển ứng dụng(hay thư viện) nên được định nghĩa trong require-dev (ví dụ PHPUnit, PHP_codeSniffer, PHPStan).
+Các gói cần thiết cho việc phát triển ứng dụng(hay thư viện) nên được định nghĩa trong require-dev (ví dụ PHPUnit, PHP_codeSniffer, PHPStan).
 
 ## Lời khuyên #11: Cập nhật phụ thuộc một cách an toàn
 Tôi đoán rằng chúng ta đều đồng ý 1 sự thật là các dependency nên được cập nhật thường xuyên. Thứ tôi muốn nói ở đây là việc cập nhật các dependency nên được thực hiện 1 cách rõ ràng và thận trọng, chứ không phải chỉ là làm cho xong như các việc khác. Nếu bạn tái cấu trúc 1 cái gì đó và tại cùng thời điểm với việc cập nhật 1 vài thư viện, bạn không thể dễ dàng biết là ứng dụng bị hỏng do việc tái cấu trúc hay do việc cập nhật.  
 
-Bạn có thể sử dụng câu lệnh `composer oudated` để xem các dependency có thể  cập nhật. Bạn nên thêm lựa chọn `--direct` (hay `-D`) để chỉ hiển thị danh sách các dependency được khai báo trong `composer.json`. Ngoài ra cũng có lựa chọn `-m` để chỉ hiển thị các bản cập nhật nhỏ.  
+Bạn có thể sử dụng câu lệnh `composer outdated` để xem các dependency có thể  cập nhật. Bạn nên thêm lựa chọn `--direct` (hay `-D`) để chỉ hiển thị danh sách các dependency được khai báo trong `composer.json`. Ngoài ra cũng có lựa chọn `-m` để chỉ hiển thị các bản cập nhật nhỏ.  
 
 **Với mỗi dependency quá hạn thì thực hiện các bước sau đây:**
 
@@ -180,7 +180,7 @@ Hoặc bạn cũng có thể sử dụng wildcard để cập nhật tất cả 
     
     composer update symfony/* --with-dependencies
     
-Tôi biết rằng tất cả những điều này nghe có vẻ thừa thãi, nhưng bạn chắc chắn sẽ cập nhật các dependency 1 cách tình cờ, an toàn hơn vẫn đáng.  
+Tôi biết rằng tất cả những điều này nghe có vẻ thừa thãi, nhưng bạn chắc chắn sẽ cập nhật các dependency 1 cách tình cờ, vì vậy an toàn hơn vẫn đáng.  
 
 Một các ngắn gọn mà mọi người chấp nhận thực hiện là cập nhật tất cả các dependency `require-dev` cùng lúc (nếu chúng không yêu cầu những thay đổi bên trong code, mặt khác tôi khuyên bạn nên sử dụng các nhánh riêng biệt để dễ dàng review code).  
 
@@ -215,9 +215,9 @@ Bạn cũng có thể định nghĩa các extensions được yêu cầu trong �
 Có [composer.json plugin echo PHPStorm](https://plugins.jetbrains.com/plugin/7631-php-composer-json-support). Nó thêm tự động hoàn thiện và xác thực khi thay đổi`composer.json` thủ công.  
 Nếu bạn đang dùng ide khác (hay code editor), bạn có thể thiết lập [JSON schema](https://getcomposer.org/schema.json).  
 
-## Lời khuyên #15: Specify the production PHP version in `composer.json`  
+## Lời khuyên #15: Chỉ định phiên bản production PHP trong `composer.json`  
 
-Nếu bạn giống tôi và đổi khi [chạy các phiên bản pre-released PHP trên local](https://blog.martinhujer.cz/php-7-2-is-due-in-november-whats-new/), bạn đang gặp vấn đề trong việc cập nhật các dependency lên 1 phiên bản không hoạt động trong sản phẩm. Ngy bây giờ tôi đang sử dụng PHP 7.2.0, có nghĩa là tôi có thể cài đặt các thư viện, mà không hoạt động trên 7.1. Vì sản phẩm đang chạy 7.1, quá trình cài đặt sẽ thất bại.  
+Nếu bạn giống tôi và đôi khi [chạy các phiên bản pre-released PHP trên local](https://blog.martinhujer.cz/php-7-2-is-due-in-november-whats-new/), bạn đang gặp vấn đề trong việc cập nhật các dependency lên 1 phiên bản không hoạt động trong sản phẩm. Ngay bây giờ tôi đang sử dụng PHP 7.2.0, có nghĩa là tôi có thể cài đặt các thư viện, mà không hoạt động trên 7.1. Vì sản phẩm đang chạy 7.1, quá trình cài đặt sẽ thất bại.  
 
 Nhưng bạn không cần lo lắng, có cách giải quyết dễ dàng. Chỉ cần định nghĩa phiên bản production PHP trong phần `config` của `composer.jon`  
     
@@ -243,7 +243,7 @@ Nhưng bạn không cần lo lắng, có cách giải quyết dễ dàng. Chỉ 
 
 Nên sử dụng `vcs` như là 1 loại repository và Composer sẽ quyết định cách đúng để lấy các package đó. Ví dụ, nếu bạn thêm 1 fork từ Github, nó sẽ sử dụng API của nó để tải file .zip thay vì clone toàn bọ repository.  
 
-Nhưng điều này sẽ phức tạp hợp khi cài đặt riêng tư trên Gitlab. Nếu bạn sử dụng `vcs` như 1 loại repository, Composer sẽ phát hiện ra đây là 1 cài đặt Gitlab cố gắng tải package bằng cách sử dụng API (được yêu cầu API key. Tôi không muốn cài đặt nó, vì vậy tôi cài đặt thiết lập này(sử dụng SSH để clone))    
+Nhưng điều này sẽ phức tạp hơn khi cài đặt riêng tư trên Gitlab. Nếu bạn sử dụng `vcs` như 1 loại repository, Composer sẽ phát hiện ra đây là 1 cài đặt Gitlab cố gắng tải package bằng cách sử dụng API (được yêu cầu API key. Tôi không muốn cài đặt nó, vì vậy tôi cài đặt thiết lập này(sử dụng SSH để clone))    
 
 Trước tiên định nghĩa repository với loại `git`:  
 
@@ -269,7 +269,7 @@ Sau đó dùng package như bạn làm thủ công:
 
 Nếu bạn tìm ra bg trong vài thư viện được public và sủa nó trong bản fork trên github, bạn cần cài thư viện từ repo này thay vì bản official (cho đến khi bugfix được hợp và bản đã sửa được phát hành).  
 
-Ns có thể được thực hiện dễ dàng với [inline aliasing](https://getcomposer.org/doc/articles/aliases.md#require-inline-alias):  
+Nó có thể được thực hiện dễ dàng với [inline aliasing](https://getcomposer.org/doc/articles/aliases.md#require-inline-alias):  
 
     
     {
@@ -286,7 +286,7 @@ Ns có thể được thực hiện dễ dàng với [inline aliasing](https://g
     }
     
 
-Bản có thể test fixbug trên local trước khi đẩy bằng cách [dùng `path` như là một kiểu repo](https://getcomposer.org/doc/05-repositories.md#path).
+Bạn có thể test fixbug trên local trước khi đẩy bằng cách [dùng `path` như là một kiểu repo](https://getcomposer.org/doc/05-repositories.md#path).
 
 ## Update 2018-01-08:
 Sau khi phát hành bài viết, tôi nhận được vài gợi ý thêm một vài tip. Vậy chúng đây:
@@ -310,7 +310,7 @@ stability=stable).
 
 ## Lời khuyên #20: Dùng authoritative class map trong production  
 
-Bạn nên [taoj authoritative class map](https://getcomposer.org/doc/articles/autoloader-optimization.md#optimization-level-2-a-authoritative-class-maps) trong
+Bạn nên [tạo authoritative class map](https://getcomposer.org/doc/articles/autoloader-optimization.md#optimization-level-2-a-authoritative-class-maps) trong
 production. Nó sẽ tăng tốc load class bằng cách thêm moitj thứ trong class-map và bỏ qua kiểm tra filesystem.
 
 bạn có thể thực hiện nó bằng cách chạy lệnh sau như một phần của quá trình xây dựng sản phẩm
@@ -321,7 +321,7 @@ bạn có thể thực hiện nó bằng cách chạy lệnh sau như một ph�
 
 ## Lời khuyên #21: Cấu hình `autoload-dev` để tests  
 
-Bạn thường không muốn thêm các file test trong production class map (cì kích thước file và bộ nhớ). Nó có thể thực hiên bằng cách cấu hình `autoload-dev` (tương tự như `autoload`):  
+Bạn thường không muốn thêm các file test trong production class map (vì kích thước file và bộ nhớ). Nó có thể thực hiên bằng cách cấu hình `autoload-dev` (tương tự như `autoload`):  
     
     
     "autoload": {
@@ -338,4 +338,4 @@ Bạn thường không muốn thêm các file test trong production class map (c
 
 ## Lời khuyên #22: Thử Composer scripts  
 
-Composer scripts là công cụ nhẹ để tạo build script. Tôi đã viêt [bài viết rieeng về chúng](/have-you-tried-composer-scripts/).
+Composer scripts là công cụ nhẹ để tạo build script. Tôi đã viêt [bài viết riêng về chúng](/have-you-tried-composer-scripts/).
